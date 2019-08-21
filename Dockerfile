@@ -23,6 +23,9 @@ RUN cd /home/omnetpp-5.4.1 && \
 
 RUN cd ~ && echo 'PATH=/home/omnetpp-5.4.1/bin:$PATH' >> .bashrc && echo 'export PATH' >> .bashrc
 
+# so that non login shells use the bashrc
+ENV BASH_ENV "/root/.bashrc"
+
 # not required for emnetpp but really usefull for python projects using omnetpp
 RUN pip3 install virtualenv
 
